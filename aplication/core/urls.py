@@ -14,6 +14,8 @@ from aplication.core.views.serviciosadd import ServiciosAdicionalesListView, Ser
 from aplication.core.views.diagnostico import DiagnosticoListView, DiagnosticoCreateView, DiagnosticoDeleteView, DiagnosticoUpdateView, DiagnosticoDetailView
 from aplication.core.views.categoriaexamen import *
 from aplication.core.views.tipocategoria import *
+from aplication.core.views.horarioatencion import *
+from aplication.core.views.citamedicam import CitaMedicaCreateView, CitaMedicaDeleteView, CitaMedicaListView, CitaMedicaUpdateView, CitaMedicaFDetailView
 
 app_name='core' # define un espacio de nombre para la aplicacion
 urlpatterns = [
@@ -93,7 +95,16 @@ urlpatterns = [
   path('tipocategoria_update/<int:pk>/',TipoCategoriaExamenUpdateView.as_view(), name='tipocategoria_update'),
   path('tipocategoria_delete/<int:pk>/', TipoCategoriaExamenDeleteView.as_view(), name='tipocategoria_delete'),
   path('tipocategoria_detail/<int:pk>/', TipoCategoriaExamenDetailView.as_view(), name='tipocategoria_detail'),
-  
+  path('horarioatencion_list/', HorarioAtencionListView.as_view(), name="horarioatencion_list"),
+  path('horarioatencion_create/', HorarioAtencionCreateView.as_view(), name="horarioatencion_create"),
+  path('horarioatencion_update/<int:pk>/',HorarioAtencionUpdateView.as_view(), name='horarioatencion_update'),
+  path('horarioatencion_delete/<int:pk>/', HorarioAtencionDeleteView.as_view(), name='horarioatencion_delete'),
+  path('horarioatencion_detail/<int:pk>/', HorarioAtencionDetailView.as_view(), name='horarioatencion_detail'), 
+  path('citamedica_list/', CitaMedicaListView.as_view(), name="citamedica_list"),
+  path('citamedica_create/', CitaMedicaCreateView.as_view(), name="citamedica_create"),
+  path('citamedica_update/<int:pk>/',CitaMedicaUpdateView.as_view(), name='citamedica_update'),
+  path('citamedica_delete/<int:pk>/', CitaMedicaDeleteView.as_view(), name='citamedica_delete'),
+  path('citamedica_detail/<int:pk>/', CitaMedicaFDetailView.as_view(), name='citamedica_detail'), 
   
   
   
