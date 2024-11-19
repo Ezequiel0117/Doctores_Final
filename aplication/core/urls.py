@@ -7,8 +7,8 @@ from aplication.core.views.doctor import DoctorCreateView, DoctorDeleteView, Doc
 from aplication.core.views.cargo import CargoListView, CargoDetailView, CargoCreateView, CargoDeleteView, CargoUpdateView
 from aplication.core.views.empleado import EmpleadoListView, EmpleadoCreateView, EmpleadotUpdateView, EmpleadoDeleteView, EmpleadoDetailView
 from aplication.core.views.tipomedicamento import TipoMedicamentoListView, TipomedicamentoCreateView, TipoMedicamentoDeleteView, TipoMedicamentotUpdateView, TipoMedicamentoDetailView
-from aplication.core.views.marcamedicamento import MarcaMedicamentoListView, MarcaMedicamentoCreateView, MarcaMedicamentoDeleteView, MarcaMedicamentoUpdateView
-from aplication.core.views.medicamento import MedicamentoListView, MedicamentoCreateView, MedicamentoDeleteView, MedicamentoUpdateView
+from aplication.core.views.marcamedicamento import MarcaMedicamentoListView, MarcaMedicamentoCreateView, MarcaMedicamentoDeleteView, MarcaMedicamentoUpdateView, MarcaMedicamentoDetailView
+from aplication.core.views.medicamento import MedicamentoListView, MedicamentoCreateView, MedicamentoDeleteView, MedicamentoUpdateView, MedicamentoDetailView
 from aplication.core.views.examensolicitado import ExamenSolicitadotListView, ExamenSolicitadoCreateView, ExamenSolicitadoDeleteView, ExamenSolicitadoUpdateView, ExamenSolicitadoDetailView
 from aplication.core.views.serviciosadd import ServiciosAdicionalesListView, ServiciosAdicionalesCreateView,ServiciosAdicionalesUpdateView,ServiciosAdicionalesDetailView,ServiciosAdicionalesDeleteView
 from aplication.core.views.diagnostico import DiagnosticoListView, DiagnosticoCreateView, DiagnosticoDeleteView, DiagnosticoUpdateView, DiagnosticoDetailView
@@ -16,6 +16,7 @@ from aplication.core.views.categoriaexamen import *
 from aplication.core.views.tipocategoria import *
 from aplication.core.views.horarioatencion import *
 from aplication.core.views.citamedicam import CitaMedicaCreateView, CitaMedicaDeleteView, CitaMedicaListView, CitaMedicaUpdateView, CitaMedicaFDetailView
+from aplication.core.views.auditoria import AuditoriaListView, AuditoriaDetailView
 
 app_name='core' # define un espacio de nombre para la aplicacion
 urlpatterns = [
@@ -66,10 +67,12 @@ urlpatterns = [
   path('marca_create/', MarcaMedicamentoCreateView.as_view(), name="marca_create"),
   path('marca_update/<int:pk>/',MarcaMedicamentoUpdateView.as_view(), name='marca_update'),
   path('marca_delete/<int:pk>/', MarcaMedicamentoDeleteView.as_view(), name='marca_delete'),
+  path('marca_detail/<int:pk>/', MarcaMedicamentoDetailView.as_view(), name='marca_detail'),
   path('medicamento_list/', MedicamentoListView.as_view(), name="medicamento_list"),
   path('medicamento_create/', MedicamentoCreateView.as_view(), name="medicamento_create"),
   path('medicamento_update/<int:pk>/',MedicamentoUpdateView.as_view(), name='medicamento_update'),
   path('medicamento_delete/<int:pk>/',MedicamentoDeleteView.as_view(), name='medicamento_delete'),
+  path('medicamento_detail/<int:pk>/', MedicamentoDetailView.as_view(), name='medicamento_detail'),
   path('examensolicitado_list/', ExamenSolicitadotListView.as_view(), name="examensolicitado_list"),
   path('examensolicitado_create/', ExamenSolicitadoCreateView.as_view(), name="examensolicitado_create"),
   path('examensolicitado_update/<int:pk>/',ExamenSolicitadoUpdateView.as_view(), name='examensolicitado_update'),
@@ -104,7 +107,11 @@ urlpatterns = [
   path('citamedica_create/', CitaMedicaCreateView.as_view(), name="citamedica_create"),
   path('citamedica_update/<int:pk>/',CitaMedicaUpdateView.as_view(), name='citamedica_update'),
   path('citamedica_delete/<int:pk>/', CitaMedicaDeleteView.as_view(), name='citamedica_delete'),
-  path('citamedica_detail/<int:pk>/', CitaMedicaFDetailView.as_view(), name='citamedica_detail'), 
+  path('citamedica_detail/<int:pk>/', CitaMedicaFDetailView.as_view(), name='citamedica_detail'),
+  path('auditoria_list/', AuditoriaListView.as_view(), name="auditoria_list"),
+  path('auditoria_detail/<int:pk>/', AuditoriaDetailView.as_view(), name='auditoria_detail'),
+  
+  
   
   
   

@@ -103,21 +103,15 @@ class MarcaMedicamentoDeleteView(DeleteView):
         # self.object.save()
         return super().delete(request, *args, **kwargs)
     
-# class PatientDetailView(DetailView):
-#     model = Paciente
+class MarcaMedicamentoDetailView(DetailView):
+    model = MarcaMedicamento
     
-#     def get(self, request, *args, **kwargs):
-#         pacient = self.get_object()
-#         data = {
-#             'id': pacient.id,
-#             'nombres': pacient.nombres,
-#             'apellidos': pacient.apellidos,
-#             'foto': pacient.get_image(),
-#             'fecha_nac': pacient.fecha_nacimiento,
-#             'edad': pacient.calcular_edad(pacient.fecha_nacimiento),
-#             'dni': pacient.cedula,
-#             'telefono': pacient.telefono,
-#             'direccion': pacient.direccion,
-#             # Añade más campos según tu modelo
-#         }
-#         return JsonResponse(data)
+    def get(self, request, *args, **kwargs):
+        marca = self.get_object()
+        data = {
+            'id': marca.id,
+            'nombre': marca.nombre,
+            'descripcion': marca.descripcion,
+            # Añade más campos según tu modelo
+        }
+        return JsonResponse(data)

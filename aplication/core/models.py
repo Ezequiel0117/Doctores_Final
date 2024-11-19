@@ -177,6 +177,12 @@ class Doctor(models.Model):
     imagen_receta = models.ImageField(upload_to='recetas/', verbose_name="Imagen para Recetas", null=True, blank=True)
     activo = models.BooleanField(default=True,verbose_name="Activo")
     
+    def get_image(self):
+        if self.foto:
+            return self.foto.url
+        else:
+            return '/static/img/nero.jpg'
+    
     @property
     def nombre_completo(self):
         return f"{self.apellidos} {self.nombres}"

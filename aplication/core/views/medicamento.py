@@ -72,7 +72,7 @@ class MedicamentoUpdateView(UpdateView):
         response = super().form_valid(form)
         medicamento = self.object
         save_audit(self.request, medicamento, action='M')
-        messages.success(self.request, f"Éxito al Modificar el paciente {medicamento.nombre}.")
+        messages.success(self.request, f"Éxito al Modificar el medicamento {medicamento.nombre}.")
         print("mande mensaje")
         return response
     
@@ -103,21 +103,20 @@ class MedicamentoDeleteView(DeleteView):
         # self.object.save()
         return super().delete(request, *args, **kwargs)
     
-# class PatientDetailView(DetailView):
-#     model = Paciente
+class MedicamentoDetailView(DetailView):
+    model = Medicamento
     
-#     def get(self, request, *args, **kwargs):
-#         pacient = self.get_object()
-#         data = {
-#             'id': pacient.id,
-#             'nombres': pacient.nombres,
-#             'apellidos': pacient.apellidos,
-#             'foto': pacient.get_image(),
-#             'fecha_nac': pacient.fecha_nacimiento,
-#             'edad': pacient.calcular_edad(pacient.fecha_nacimiento),
-#             'dni': pacient.cedula,
-#             'telefono': pacient.telefono,
-#             'direccion': pacient.direccion,
-#             # Añade más campos según tu modelo
-#         }
-#         return JsonResponse(data)
+    def get(self, request, *args, **kwargs):
+        medicamento = self.get_object()
+        data = {
+            'id': medicamento.id,
+            'nombre': medicamento.nombre,
+            'descripcion': medicamento.descripcion,
+            'concentracion': medicamento.concentracion,
+            'cantidad': medicamento.cantidad,
+            'precio': medicamento.precio,
+            'foto': medicamento.get_image(),
+            'comercial': medicamento.comercial,
+            # Añade más campos según tu modelo
+        }
+        return JsonResponse(data)

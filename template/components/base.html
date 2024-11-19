@@ -12,7 +12,8 @@
     {% block css %}{% endblock %}
     <style>
         /* Estilo para el sidebar */
-        .sidebar {
+      /* Estilo para el sidebar */
+      .sidebar {
             background: linear-gradient(135deg, #4c76be, #2e59d9);
             color: white;
             min-height: 100vh;
@@ -46,17 +47,16 @@
         .stat-card:hover {
             transform: scale(1.05);
         }
-        /* Centrar el contenedor del ícono */
         .icon-square {
-        font-size: 2em;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60px; /* Ajustar tamaño para una mejor alineación */
-        width: 60px;
-        margin: 0 auto; /* Centra el ícono horizontalmente */
-        border-radius: 50%; /* Bordes redondeados para un efecto de icono circular */
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
         }
         .quick-actions .btn {
             font-size: 0.9em;
@@ -80,31 +80,66 @@
                     <h5 class="mt-2">{{ request.user }}</h5>
                 </div>
                 <nav class="nav flex-column mt-4">
-                    <a class="nav-link active" href="{% url 'core:home' %}"><i class="fas fa-home me-2"></i> Dashboard</a>
-                    <a class="nav-link" href="{% url 'core:type_list' %}"><i class="fas fa-calendar-alt me-2"></i> Tipo sangre</a>
-                    <a class="nav-link" href="{% url 'core:empleado_list' %}"><i class="fas fa-calendar-alt me-2"></i> Empleados</a>
-                    <a class="nav-link" href="{% url 'core:cargo_list' %}"><i class="fas fa-user-injured me-2"></i> Cargos</a>
-                    <a class="nav-link" href="{% url 'core:tipom_list' %}"><i class="fas fa-stethoscope me-2"></i> Tipos de Medicamentos</a>
-                    <a class="nav-link" href="{% url 'core:marca_list' %}"><i class="fas fa-procedures me-2"></i> Lista de marca de Medicamentos</a>
-                    <a class="nav-link" href="{% url 'core:doctor_list' %}"><i class="fas fa-cogs me-2"></i> Doctores</a>
-                    <a class="nav-link" href="{% url 'core:speciality_list' %}"><i class="fas fa-cogs me-2"></i> Especialidades</a>
-                    <a class="nav-link" href="{% url 'core:medicamento_list' %}"><i class="fas fa-cogs me-2"></i> Medicamentos</a>
-                    <a class="nav-link" href="{% url 'core:examensolicitado_list' %}"><i class="fas fa-cogs me-2"></i> Examenes Solicitados</a>
-                    <a class="nav-link" href="{% url 'core:servicio_list' %}"><i class="fas fa-cogs me-2"></i> Servicios Extras</a>
-                    <a class="nav-link" href="{% url 'core:diagnostico_list' %}"><i class="fas fa-cogs me-2"></i> Diagnosticos</a>
-                    <a class="nav-link" href="{% url 'core:categoriaexamen_list' %}"><i class="fas fa-cogs me-2"></i> Categorias de examenes</a>
-                    <a class="nav-link" href="{% url 'core:tipocategoria_list' %}"><i class="fas fa-cogs me-2"></i> Tipo Categorias de examenes</a>
-                    <a class="nav-link" href="{% url 'core:horarioatencion_list' %}"><i class="fas fa-cogs me-2"></i> Horarios</a>
-                    <a class="nav-link" href="{% url 'core:citamedica_list' %}"><i class="fas fa-cogs me-2"></i> Citas</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'core:home' %}">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'empleado_list' %}active{% endif %}" href="{% url 'core:empleado_list' %}">
+                        <i class="fas fa-users me-2"></i> Empleados
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'cargo_list' %}active{% endif %}" href="{% url 'core:cargo_list' %}">
+                        <i class="fas fa-briefcase me-2"></i> Cargos
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'type_list' %}active{% endif %}" href="{% url 'core:type_list' %}">
+                        <i class="fas fa-tint me-2"></i> Tipo de Sangre
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'doctor_list' %}active{% endif %}" href="{% url 'core:doctor_list' %}">
+                        <i class="fas fa-user-md me-2"></i> Doctores
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'speciality_list' %}active{% endif %}" href="{% url 'core:speciality_list' %}">
+                        <i class="fas fa-stethoscope me-2"></i> Especialidades
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'horarioatencion_list' %}active{% endif %}" href="{% url 'core:horarioatencion_list' %}">
+                        <i class="fas fa-calendar-alt me-2"></i> Horarios
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'citamedica_list' %}active{% endif %}" href="{% url 'core:citamedica_list' %}">
+                        <i class="fas fa-calendar-check me-2"></i> Citas
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'tipom_list' %}active{% endif %}" href="{% url 'core:tipom_list' %}">
+                        <i class="fas fa-capsules me-2"></i> Tipos de Medicamentos
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'marca_list' %}active{% endif %}" href="{% url 'core:marca_list' %}">
+                        <i class="fas fa-pills me-2"></i> Marcas de Medicamentos
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'medicamento_list' %}active{% endif %}" href="{% url 'core:medicamento_list' %}">
+                        <i class="fas fa-syringe me-2"></i> Medicamentos
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'examensolicitado_list' %}active{% endif %}" href="{% url 'core:examensolicitado_list' %}">
+                        <i class="fas fa-microscope me-2"></i> Exámenes Solicitados
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'categoriaexamen_list' %}active{% endif %}" href="{% url 'core:categoriaexamen_list' %}">
+                        <i class="fas fa-folder-open me-2"></i> Categorías de Exámenes
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'tipocategoria_list' %}active{% endif %}" href="{% url 'core:tipocategoria_list' %}">
+                        <i class="fas fa-tag me-2"></i> Tipos de Categoría de Exámenes
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'servicio_list' %}active{% endif %}" href="{% url 'core:servicio_list' %}">
+                        <i class="fas fa-concierge-bell me-2"></i> Servicios Extras
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'diagnostico_list' %}active{% endif %}" href="{% url 'core:diagnostico_list' %}">
+                        <i class="fas fa-file-medical me-2"></i> Diagnósticos
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'auditoria_list' %}active{% endif %}" href="{% url 'core:auditoria_list' %}">
+                        <i class="fas fa-user-secret me-2"></i> Auditorías
+                    </a>
                 </nav>
             </div>
+
 
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <main>
                     {% include 'includes/messages.html' %}
                     {% block content %}
-                    <!-- Dashboard Content -->
                     <div class="row g-4 mb-4">
                         <div class="col-md-3">
                             <div class="card stat-card">
@@ -152,7 +187,6 @@
                         </div>
                     </div>
 
-                    <!-- Quick Actions -->
                     <div class="row mb-4">
                         <div class="col-12">
                             <div class="card">
@@ -161,14 +195,13 @@
                                     <div class="quick-actions d-flex flex-wrap gap-3">
                                         <button class="btn btn-primary"><i class="fas fa-plus-circle me-2"></i> Nueva Cita</button>
                                         <a class="btn btn-primary text-white" href="{% url 'core:patient_list' %}"><i class="fas fa-user-plus me-2"></i> Nuevo Paciente</a>
-                                        <button class="btn btn-info text-white"><i class="fas fa-file-medical me-2"></i> Nueva Consulta</button>
-                                        <button class="btn btn-warning"><i class="fas fa-notes-medical me-2"></i> Historial Médico</button>
+                                        <button class="btn btn-info text-white"><i class="fas fa-file-medical me-2"></i> Nuevo Diagnóstico</button>
+                                        <button class="btn btn-danger"><i class="fas fa-syringe me-2"></i> Nueva Medicina</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <!-- Recent Activity & Upcoming Appointments -->
                     <div class="row">
                         <div class="col-md-6 mb-4">

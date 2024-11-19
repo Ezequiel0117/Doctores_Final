@@ -101,15 +101,10 @@ class DoctorDetailView(DetailView):
             'nombres': doctor.nombres,
             'apellidos': doctor.apellidos,
             'cedula': doctor.cedula,
-            'fecha_nacimiento': doctor.fecha_nacimiento,
             'direccion': doctor.direccion,
-            'latitud': doctor.latitud,
-            'longitud': doctor.longitud,
             'codigoUnicoDoctor': doctor.codigoUnicoDoctor,
             'telefonos': doctor.telefonos,
             'email': doctor.email,
-            'horario_atencion': doctor.horario_atencion,
-            'duracion_cita': doctor.duracion_cita,
-            'foto': doctor.foto.url if doctor.foto else None,
+            'foto': doctor.get_image(),
         }
         return JsonResponse(data)

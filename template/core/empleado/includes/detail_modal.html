@@ -1,4 +1,4 @@
-<!-- templates/includes/patient_detail_modal.html -->
+<!-- Modal para mostrar detalles del empleado -->
 <div class="modal fade" id="empleadoModal" tabindex="-1" aria-labelledby="empleadoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -8,25 +8,25 @@
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-           <div class="modal-body">
-    <div class="row">
-        <!-- Columna para los datos -->
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col-md-6">
-                    <p><strong><i class="fas fa-id-card me-2"></i>ID:</strong> <span id="empleado-id"></span></p>
-                    <p><strong><i class="fas fa-user me-2"></i>Nombres:</strong> <span id="empleado-nombres"></span></p>
-                    <p><strong><i class="fas fa-user me-2"></i>Apellidos:</strong> <span id="empleado-apellidos"></span></p>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- Columna para los datos -->
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><strong><i class="fas fa-id-card me-2"></i>ID:</strong> <span id="empleado-id"></span></p>
+                                <p><strong><i class="fas fa-user me-2"></i>Nombres:</strong> <span id="empleado-nombres"></span></p>
+                                <p><strong><i class="fas fa-user me-2"></i>Apellidos:</strong> <span id="empleado-apellidos"></span></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Cerrar
+                </button>
             </div>
         </div>
     </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-        <i class="fas fa-times me-2"></i>Cerrar
-    </button>
-</div>
-</div>
-</div>
 </div>

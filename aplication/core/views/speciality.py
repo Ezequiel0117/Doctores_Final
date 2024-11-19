@@ -101,7 +101,6 @@ class SpecialityDetailView(DetailView):
             'id': speciality.id,
             'nombre': speciality.nombre,
             'descripcion': speciality.descripcion,
-            'activo': speciality.activo,
             # Añade más campos según tu modelo
         }
         return JsonResponse(data)

@@ -1,6 +1,6 @@
 .sidebar {
     min-height: 100vh;
-    background: hsl(180, 83%, 14%) ;
+    background: hsl(0, 0%, 100%) ;
     transition: all 0.3s;
   }
   .sidebar .nav-link {
@@ -15,7 +15,7 @@
     transform: translateX(5px);
   }
   .sidebar .nav-link.active {
-    background: #3498db;
+    background: #ffffff;
   }
   .main-content {
     background: #f8f9fa;
